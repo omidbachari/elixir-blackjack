@@ -7,7 +7,7 @@ defmodule Blackjack.Hand do
 
   def score(hand) do
     hand.cards
-    |> Enum.reduce(0, &(&2 + card_value(String.at(&1, 0))))
+    |> Enum.reduce(0, &(&2 + card_value(String.slice(&1, 0..-2))))
     |> handle_aces(ace_count(hand))
   end
 
