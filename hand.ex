@@ -5,6 +5,11 @@ defmodule Blackjack.Hand do
     %{hand | cards: [card | hand.cards]}
   end
 
+  def add_cards(hand, [h | t]) do
+    add_card(hand, h) |> add_cards(t)
+  end
+  def add_cards(hand, []), do: hand
+
   def score(hand) do
     hand.cards
     |> Enum.reduce(0, &(&2 + card_value(String.slice(&1, 0..-2))))
