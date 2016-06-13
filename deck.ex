@@ -27,7 +27,7 @@ defmodule Blackjack.Deck do
   Returns new deck and cards taken
   """
 
-  @spec take(list(), number()) :: tuple()
+  @spec take(list(), number()) :: {list(), list()}
 
   def take(deck, n \\ 1) when is_list(deck), do: deck |> Enum.split(n)
 
