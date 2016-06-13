@@ -1,8 +1,6 @@
 defmodule Blackjack.Hand do
   defstruct cards: []
 
-  alias __MODULE__
-
   def add_card(hand, card) do
     %{hand | cards: [card | hand.cards]}
   end
